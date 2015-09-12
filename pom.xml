@@ -92,17 +92,13 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_${scala.compact.version}</artifactId>
             <version>${spark.version}</version>
-<!--
             <scope>provided</scope>
--->
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-sql_${scala.compact.version}</artifactId>
             <version>${spark.version}</version>
-<!--
             <scope>provided</scope>
--->
         </dependency>
         <dependency>
             <groupId>org.geotools</groupId>
