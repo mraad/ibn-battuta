@@ -9,12 +9,18 @@ import org.apache.spark.sql.SQLContext
   */
 package object fgb {
 
+  /**
+   * Adds a method, `fileGDB`, to SQLContext that allows reading FileGDB data.
+   */
   implicit class FGBContext(sqlContext: SQLContext) extends Serializable {
     implicit def fileGDB(path: String, fieldNames: Option[Array[String]], cql: Option[String]) = {
       sqlContext.baseRelationToDataFrame(FileGDBRelation(path)(sqlContext))
     }
   }
 
+  /**
+   * Adds a method, `fileGDB`, to SparkContext that allows reading FileGDB data.
+   */
   implicit class SparkContextImplicits(sc: SparkContext) {
 
     implicit def fileGDB(path: String) = {
