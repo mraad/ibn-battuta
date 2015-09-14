@@ -5,7 +5,7 @@
 
     <groupId>com.esri</groupId>
     <artifactId>ibn-battuta</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
     <packaging>jar</packaging>
 
     <name>Ibn Battuta</name>
@@ -96,19 +96,25 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_${scala.compact.version}</artifactId>
             <version>${spark.version}</version>
+<!--
             <scope>provided</scope>
+-->
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-sql_${scala.compact.version}</artifactId>
             <version>${spark.version}</version>
+<!--
             <scope>provided</scope>
+-->
         </dependency>
         <dependency>
             <groupId>org.geotools</groupId>
             <artifactId>gt-ogr-bridj</artifactId>
             <version>${gt.version}</version>
+<!--
             <scope>provided</scope>
+-->
             <exclusions>
                 <exclusion>
                     <groupId>javax.media</groupId>
@@ -120,7 +126,9 @@
             <groupId>org.geotools</groupId>
             <artifactId>gt-cql</artifactId>
             <version>${gt.version}</version>
+<!--
             <scope>provided</scope>
+-->
             <exclusions>
                 <exclusion>
                     <groupId>javax.media</groupId>

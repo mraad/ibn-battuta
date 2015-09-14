@@ -112,7 +112,7 @@ spark-shell\
  --driver-memory 1G\
  --executor-memory 8G\
  --packages org.geotools:gt-ogr-bridj:14-beta,org.geotools:gt-cql:14-beta\
- --jars target/ibn-battuta-0.1.jar
+ --jars target/ibn-battuta-0.2.jar
 ```
 
 ```scala
@@ -133,7 +133,7 @@ pyspark\
  --driver-memory 1G\
  --executor-memory 8G\
  --packages org.geotools:gt-ogr-bridj:14-beta,org.geotools:gt-cql:14-beta\
- --jars target/ibn-battuta-0.1.jar
+ --jars target/ibn-battuta-0.2.jar
 ```
 
 ```python
@@ -143,6 +143,15 @@ option('fields','the_geom,Status').\
 load('/Users/mraad_admin/Share/Miami.gdb/Broadcast')
 df.registerTempTable('POINTS')
 sqlContext.sql("SELECT the_geom['x'],the_geom['y'] FROM POINTS WHERE Status>0 LIMIT 5").show()
+```
+
+mvn```python
+df = sqlContext.read.\
+format('com.esri.battuta.dbf').\
+load('/Users/mraad_admin/Share/data.dbf')
+df.registerTempTable('DATA')
+sqlContext.sql('SELECT * FROM DATA LIMIT 5').show()
+sqlContext.sql('SELECT MIN(X) AS MIN_X,MIN(Y) AS MIN_Y,MAX(X) AS MAX_X,MAX(Y) AS MAX_Y FROM DATA').show()
 ```
 
 ## Submitting Spark Jobs Using ArcPy

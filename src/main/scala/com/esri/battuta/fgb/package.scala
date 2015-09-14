@@ -12,7 +12,7 @@ package object fgb {
   /**
    * Adds a method, `fileGDB`, to SQLContext that allows reading FileGDB data.
    */
-  implicit class FGBContext(sqlContext: SQLContext) extends Serializable {
+  implicit class SQLContextImplicits(sqlContext: SQLContext) extends Serializable {
     implicit def fileGDB(path: String, fieldNames: Option[Array[String]], cql: Option[String]) = {
       sqlContext.baseRelationToDataFrame(FileGDBRelation(path)(sqlContext))
     }
