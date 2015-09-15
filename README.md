@@ -145,7 +145,7 @@ df.registerTempTable('POINTS')
 sqlContext.sql("SELECT the_geom['x'],the_geom['y'] FROM POINTS WHERE Status>0 LIMIT 5").show()
 ```
 
-mvn```python
+```python
 df = sqlContext.read.\
 format('com.esri.battuta.dbf').\
 load('/Users/mraad_admin/Share/data.dbf')
